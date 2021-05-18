@@ -37,12 +37,34 @@
         <pre><code>
           # <b>slackpkg install-new</b>
         </code></pre>
-	<img src="/images/packages_to_install.png" loading="lazy" alt="install new packages" />
+	<img src="/images/packages_to_install.png" loading="lazy" alt="screenshotof install new packages" />
         <p>Upgrade the whole system:</p>
         <pre><code>
           # <b>slackpkg upgrade-all</b>
         </code></pre>
-	<img src="/images/choose_packages_to_upgrade.png" loading="lazy" alt="install new packages" />
+	<img src="/images/choose_packages_to_upgrade.png" loading="lazy" alt="screenshot of upgrade packages" />
+	<p>Now, take a break, get cup of coffee—the update process takes some time. When everything is ready, slackware will ask  you:</p>
+	 <pre><code>
+          Your kernel image was updated.  We highly recommend you run: lilo
+	  Do you want slackpkg to run lilo now? (Y/n)
+         </code></pre>
+	<p>By convention the uppercase option (Y in this  case) is the default option if you don't provide any and just press the Return (Enter) key. So, hit the Return (Enter) key and wait for the last question:</p>
+	 <pre><code>
+        Some packages had new configuration files installed.
+	You have four choices:
+
+	(K)eep the old files and consider .new files later
+
+	(O)verwrite all old files with the new ones. The
+	   old files will be stored with the suffix .orig
+
+	(R)emove all .new files
+
+	(P)rompt K, O, R selection for every single file
+	
+	What do you want (K/O/R/P)?
+         </code></pre>
+	 <p>I usually use the <b>P</b> option to browse the new files, but you can choose whatever you want. It remains to restart your machine and you are up to date :)</p>
       </section>
     </article>
     <footer>
