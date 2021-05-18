@@ -21,7 +21,6 @@ h1 {
     line-height: 1;
 }
 h2 {
-    font-style: italic;
     font-weight: 400;
     margin-top: 2.1rem;
     margin-bottom: 1.4rem;
@@ -47,6 +46,7 @@ dl,
 ol,
 p,
 ul {
+    list-style-type: none;
     font-size: 1.4rem;
     line-height: 2rem;
 }
