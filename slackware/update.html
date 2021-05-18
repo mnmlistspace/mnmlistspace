@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Stephan Stoilov">
+    <meta name="description" content="mnmlist.space don't track you and don't store your data.">
+    <link rel="canonical" href="https://mnmlist.space/slackware/update.html" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <title>How to update Slackware Linux</title>
+</head>
+<body>
+    <article>
+      <h1 class="logo"><a href="/">mnmlist.space</a></h1>
+      <p class="subtitle">How to update Slackware Linux</p>
+      <section>
+        <p>Before starting the update process, it is a good habit to check Slackware ChangeLog. Check for critical packages important to your work—research on the Internet for potential problems and possible solutions. Be a proactive participant in the process, not just an observer.</p>
+        <p>Although the process of update takes some time, updating Slackware Linux is easy and hassle-free.</p>  
+        <p><strong>Let's start:</strong></p>
+        <p>Run slackpkg update gpg to connect to a Slackware mirror and initialize your slackpkg's database. If this is your first update at all, you should get such an output. 
+        </p>
+        <pre><code>
+            # <b>slackpkg update gpg</b>
+            You do not have any mirror selected in...
+        </code></pre>
+        <p>Edit the /etc/slackpkg/mirrors with an editor of your choice(I'm using vi for such kinds of tasks) and select a mirror close to your geolocation. Be careful with two super essential details:</p>
+        <ul>
+          <li>There can be only one mirror server.</li>
+          <li>The file has two server lists. The first list is for Slackware64(or 32)-14.2 (a.k.a stable) installation, and the second one is for Slackware64-current. If you use a stable - DO NOT UNCOMMENT mirrors for current and vice versa.</li>
+        </ul>
+        <p>Once you have selected your mirror and saved the  /etc/slackpkg/mirrors, you can rerun the slackpkg update gpg.</p>
+        <p>The next step consists of updating modified packages. If you have any 3rd party packages installed on your system, please blacklist them so that slackpkg will not interfere with those applications.</p>
+        <p>Install the newly added packages to the Slackware distribution:<p></p>
+        <pre><code>
+          # <b>slackpkg install-new</b>
+        </code></pre>
+        <p>Upgrade the whole system:</p>
+        <pre><code>
+          # <b>slackpkg upgrade-all</b>
+        </code></pre>
+      </section>
+    </article>
+    <footer>
+      <p>Written in Emacs. <a title="the source code is available at github" href="https://github.com/mnmlistspace"><strong>Source Code</strong></a> at GitHub. Under <a title="mnmlist.space is licensed under the unlicense" href="/license.html"><strong>Unlicense License</strong></a></p>
+      <p>This website does not collect any data, read the <a title="mnmlist.space's privacy policy" href="/privacy_policy.html"><strong>Privacy Policy</strong></a></p>
+      <p>Updated on May 16, 2021.</p>
+    </footer>
+  </body>
+</html>
