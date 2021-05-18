@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Stephan Stoilov">
+    <meta name="description" content="mnmlist.space don't track you and don't store your data.">
+    <link rel="canonical" href="https://mnmlist.space/privacy_policy.html" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <title>Slackware on a desktop - The Beginner's Guide</title>
+</head>
+<body>
+    <article>
+      <h1 class="logo"><a href="/">mnmlist.space</a></h1>
+      <p class="subtitle">Slackware on a desktop - The Beginner's Guide</p>
+      <section>
+        <p>
+          As a graphic designer in this digital era, I am forcing to use Microsoft Windows or macOS. A considerable part of my clients and almost all of my colleagues I work with expect me to use Adobe Creative Cloud. These requirements sometimes have their technical reasons, and sometimes they are just stupid twists. For this reason, I use my windows workstation only when I have to deal with Adobe products. For everything else, I grant in GNU/Linux and, more specifically, in Slackware Linux.
+        </p>
+        <p>
+          I have been using Slackware for everyday desktop tasks since 2002. Over the years, I have tried all the significant Linux distributions and some not-so-significant ones. I always go back to the good old Slackware. In my eyes and mind, he offers everything I need and works perfectly. For me, the combination of Thinkpad laptop and Slackware Linux is the greatest thing that can happen to a minimalist person in the IT industry.
+        </p>
+        <p><h2>Stable or Current?</h2></p>
+        <p>
+          Slackware Linux has two main branches. "Stable" realize and "Current." The stable branch is suitable for newcomers and those who need a stable workstation or reliable server. The current branch is the place where the dev team pushes the latest changes in the development process. I'm using the Slackware stable. If you need the current branch, I highly recommend checking alienbob's website.
+        </p>
+        <p><h2>Download slackware</h2></p>
+        <p>First, let's get the installation files we need from Slackware's website. Slackware Mirror List uses MirrorBrain, which offers us two convenient options: mirror selection by network topology
+          and geolocation by an estimated geographical distance of the mirrors to the client. Take a look at the list of:
+          Found X mirrors which handle this country (XX). These are the files on the mirror servers suitable for you to download. Select one link and download the iso and the md5 files.</p>
+          <pre><code>
+            $ <b>cd /Downloads</b>
+            $ <b>curl -O https://mirror.telepoint.bg/slackware/slackware-iso/slackware64-14.2-iso/slackware64-14.2-install-dvd.iso</b>
+            % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+            Dload  Upload   Total   Spent    Left  Speed
+            9 2645M    9  247M    0     0   979k      0  0:46:04  0:04:18  0:41:46 1009k
+          </code></pre>
+          <p>Wait for iso to download and get the md5 file in the same directory:</p>
+          <pre><code>
+            $ <b>curl -O https://mirror.telepoint.bg/slackware/slackware-iso/slackware64-14.2-iso/slackware64-14.2-install-dvd.iso.md5</b>
+            % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+            Dload  Upload   Total   Spent    Left  Speed
+            100    67  100    67    0     0    833      0 --:--:-- --:--:-- --:--:--  1015             
+          </code></pre>
+          <p>Let's check the integrity of the downloaded iso file with <code>md5sum</code>:</p>
+          <pre><code>
+            $ <b>md5sum slackware64-14.2-install-dvd.iso > downloaded-iso.md5</b>
+            $  
+          </code></pre>
+          <p>Now we need to compare the two files with <code>sdiff</code>:</p>
+          <pre><code>
+            $ <b>sdiff -s slackware64-14.2-install-dvd.iso.md5  downloaded-iso.md5</b>
+            $   
+          </code></pre>
+          <p>In the Unix tradition, no news means good news. Once we have "no" output from the previous command, we can continue creating the USB. Plugin the USB stick and copy the disk image using the dd command. This command assumes the USB drive is recognizing as sdb (check dmesg to verify):</p>
+          <pre><code>
+            # <b>dd if=slackware64-14.2-install-dvd.iso.md5  of=/dev/sdb</b>
+          </code></pre>
+          <p>Boot your laptop from the USB installer. This guide assumes you're booting via "BIOS compatibility mode" or "BIOS legacy mode" options. If you have UEFI mode, you should disable them. </p>
+        </section>
+    </article>
+    <footer>
+      <p>Written in Emacs. <a title="the source code is available at github" href="https://github.com/mnmlistspace"><strong>Source Code</strong></a> at GitHub. Under <a title="mnmlist.space is licensed under the unlicense" href="/license.html"><strong>Unlicense License</strong></a></p>
+      <p>This website does not collect any data, read the <a title="mnmlist.space's privacy policy" href="/privacy_policy.html"><strong>Privacy Policy</strong></a></p>
+      <p>Updated on May 16, 2021.</p>
+    </footer>
+  </body>
+</html>
